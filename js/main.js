@@ -25,20 +25,15 @@ const clearNode = function (node) {
  * @param {number} screenNumber
  */
 const showScreen = function (screenNumber) {
-  if (screenNumber < 0) {
-    screenNumber = 0;
-  }
-  if (screenNumber >= screens.length) {
-    screenNumber = screens.length - 1;
-  }
+  screenNumber = Math.min(Math.max(screenNumber, 0), screens.length - 1);
   clearNode(mainScreen);
   mainScreen.appendChild(screens[screenNumber].cloneNode(true));
   currentScreen = screenNumber;
 };
 
 /**
- * Switches current game screen, when user presses 'ALT + ->' or
- * 'ALT + <-' keys combination
+ * Switches current game screen, when user presses 'ALT + →' or
+ * 'ALT + ←' keys combination
  * @param {Event} evt
  */
 const documentKeydownHandler = function (evt) {
