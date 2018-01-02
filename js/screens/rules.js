@@ -1,6 +1,8 @@
 import createFragmentFromString from '../modules/html-string-parser';
 import showScreen from '../modules/show-screen';
+
 import game1Screen from './game-1';
+import greetingScreen from './greeting';
 
 const templateString = `
 <header class="header">
@@ -39,6 +41,7 @@ const templateString = `
   </footer>`;
 
 const rulesScreen = createFragmentFromString(templateString);
+const backButton = rulesScreen.querySelector(`.header__back`);
 const rulesForm = rulesScreen.querySelector(`.rules__form`);
 const nameInput = rulesForm.querySelector(`.rules__input`);
 const submitButton = rulesForm.querySelector(`.rules__button`);
@@ -50,6 +53,10 @@ nameInput.addEventListener(`input`, () => {
 rulesForm.addEventListener(`submit`, (evt) => {
   evt.preventDefault();
   showScreen(game1Screen);
+});
+
+backButton.addEventListener(`click`, () => {
+  showScreen(greetingScreen);
 });
 
 export default rulesScreen;

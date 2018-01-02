@@ -1,6 +1,8 @@
 import createFragmentFromString from '../modules/html-string-parser';
 import showScreen from '../modules/show-screen';
+
 import game2Screen from './game-2';
+import greetingScreen from './greeting';
 
 const templateString = `
 <header class="header">
@@ -70,13 +72,22 @@ const templateString = `
   </footer>`;
 
 const game1Screen = createFragmentFromString(templateString);
+const backButton = game1Screen.querySelector(`.header__back`);
 const gameArea = game1Screen.querySelector(`.game__content`);
 
 gameArea.addEventListener(`click`, () => {
   const selectedOptions = gameArea.querySelectorAll(`input[type="radio"]:checked`);
+
   if (selectedOptions.length === 2) {
+    selectedOptions.forEach((option) => {
+      option.checked = false;
+    });
     showScreen(game2Screen);
   }
+});
+
+backButton.addEventListener(`click`, () => {
+  showScreen(greetingScreen);
 });
 
 export default game1Screen;

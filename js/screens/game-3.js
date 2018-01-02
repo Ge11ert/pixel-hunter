@@ -1,6 +1,8 @@
 import createFragmentFromString from '../modules/html-string-parser';
 import showScreen from '../modules/show-screen';
+
 import statsScreen from './stats';
+import greetingScreen from './greeting';
 
 const templateString = `
 <header class="header">
@@ -57,12 +59,17 @@ const templateString = `
   </footer>`;
 
 const game3Screen = createFragmentFromString(templateString);
+const backButton = game3Screen.querySelector(`.header__back`);
 const gameOptions = game3Screen.querySelectorAll(`.game__option`);
 
 gameOptions.forEach((option) => {
   option.addEventListener(`click`, () => {
     showScreen(statsScreen);
   });
+});
+
+backButton.addEventListener(`click`, () => {
+  showScreen(greetingScreen);
 });
 
 export default game3Screen;

@@ -1,11 +1,13 @@
 /**
- * Creates a document fragment of HTML elements,
- * using a raw html string
+ * Creates a div with fragment of HTML elements, using a raw html string.
+ * Wrapping DIV is necessary to keep the fragment immutable after inserting in DOM tree.
  * @param {string} htmlString
- * @return {DocumentFragment}
+ * @return {Node}
  */
 const createFragment = function (htmlString) {
-  return document.createRange().createContextualFragment(htmlString);
+  const div = document.createElement(`div`);
+  div.appendChild(document.createRange().createContextualFragment(htmlString));
+  return div;
 };
 
 export default createFragment;

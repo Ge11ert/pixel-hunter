@@ -1,4 +1,6 @@
 import createFragmentFromString from '../modules/html-string-parser';
+import showScreen from '../modules/show-screen';
+import greetingScreen from './greeting';
 
 const templateString = `
 <header class="header">
@@ -121,5 +123,10 @@ const templateString = `
   </footer>`;
 
 const statsScreen = createFragmentFromString(templateString);
+const backButton = statsScreen.querySelector(`.header__back`);
+
+backButton.addEventListener(`click`, () => {
+  showScreen(greetingScreen);
+});
 
 export default statsScreen;
