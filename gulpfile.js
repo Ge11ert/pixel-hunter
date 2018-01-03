@@ -1,9 +1,12 @@
+/* eslint-disable */
 'use strict';
 
 const del = require('del');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const plumber = require('gulp-plumber');
+const rollup = require('gulp-better-rollup');
+const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const server = require('browser-sync').create();
@@ -36,8 +39,11 @@ gulp.task('style', function () {
 });
 
 gulp.task('scripts', function () {
-  return gulp.src('js/**/*.js')
+  return gulp.src('js/main.js')
     .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(rollup({}, 'iife'))
+    .pipe(sourcemaps.write(''))
     .pipe(gulp.dest('build/js/'));
 });
 
