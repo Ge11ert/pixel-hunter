@@ -125,8 +125,6 @@ const templateString = `
 const statsScreen = createFragmentFromString(templateString);
 const backButton = statsScreen.querySelector(`.header__back`);
 
-backButton.addEventListener(`click`, () => {
-  showScreen(greetingScreen);
-});
+backButton.addEventListener(`click`, () => showScreen(greetingScreen));
 
 export default statsScreen;

@@ -63,13 +63,9 @@ const backButton = game3Screen.querySelector(`.header__back`);
 const gameOptions = game3Screen.querySelectorAll(`.game__option`);
 
 gameOptions.forEach((option) => {
-  option.addEventListener(`click`, () => {
-    showScreen(statsScreen);
-  });
+  option.addEventListener(`click`, () => showScreen(statsScreen));
 });
 
-backButton.addEventListener(`click`, () => {
-  showScreen(greetingScreen);
-});
+backButton.addEventListener(`click`, () => showScreen(greetingScreen));
 
 export default game3Screen;

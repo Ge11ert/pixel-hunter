@@ -71,8 +71,6 @@ answers.forEach((option) => {
   });
 });
 
-backButton.addEventListener(`click`, () => {
-  showScreen(greetingScreen);
-});
+backButton.addEventListener(`click`, () => showScreen(greetingScreen));
 
 export default game2Screen;

@@ -86,8 +86,6 @@ gameArea.addEventListener(`click`, () => {
   }
 });
 
-backButton.addEventListener(`click`, () => {
-  showScreen(greetingScreen);
-});
+backButton.addEventListener(`click`, () => showScreen(greetingScreen));
 
 export default game1Screen;

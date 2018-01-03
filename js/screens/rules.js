@@ -55,8 +55,6 @@ rulesForm.addEventListener(`submit`, (evt) => {
   showScreen(game1Screen);
 });
 
-backButton.addEventListener(`click`, () => {
-  showScreen(greetingScreen);
-});
+backButton.addEventListener(`click`, () => showScreen(greetingScreen));
 
 export default rulesScreen;

@@ -30,8 +30,6 @@ const templateString = `
 const greetingScreen = createFragmentFromString(templateString);
 const greetingArrow = greetingScreen.querySelector(`.greeting__continue`);
 
-greetingArrow.addEventListener(`click`, () => {
-  showScreen(rulesScreen);
-});
+greetingArrow.addEventListener(`click`, () => showScreen(rulesScreen));
 
 export default greetingScreen;

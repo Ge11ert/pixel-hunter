@@ -23,8 +23,6 @@ const templateString = `
 const introScreen = createFragmentFromString(templateString);
 const asterisk = introScreen.querySelector(`.intro__asterisk`);
 
-asterisk.addEventListener(`click`, () => {
-  showScreen(greetingScreen);
-});
+asterisk.addEventListener(`click`, () => showScreen(greetingScreen));
 
 export default introScreen;
